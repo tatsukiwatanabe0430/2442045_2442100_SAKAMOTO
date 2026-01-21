@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}レビュー{% endblock %}
+{% block content %}
+<h2>レビュー一覧</h2>
+<div class="card-container">
+{% for review in reviews %}
+<div class="card">
+    <h3>{{ review.book.title }} ({{ review.user.username }})</h3>
+    <p>評価: {{ '⭐'*review.rating }}{{ '☆'*(5-review.rating) }}</p>
+    <p>{{ review.review_text }}</p>
+    <p>{{ review.review_date.strftime('%Y-%m-%d %H:%M') }}</p>
+    {% if review.user_id == session.get('user_id') %}
+        <a class="btn delete" href="{{ url_for('delete_review', review_id=review.id) }}" onclick="return confirm('レビューを削除しますか？')">削除</a>
+    {% endif %}
+    <a class="btn" href="{{ url_for('add_comment', review_id=review.id) }}">コメントする</a>
+    <div class="comments">
+        {% for comment in review.comments %}
+        <p>{{ comment.user.username }}: {{ comment.comment_text }}
+        {% if comment.user_id == session.get('user_id') %}
+            <a class="btn delete" href="{{ url_for('delete_comment', comment_id=comment.id) }}" onclick="return confirm('コメントを削除しますか？')">削除</a>
+        {% endif %}
+        </p>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
