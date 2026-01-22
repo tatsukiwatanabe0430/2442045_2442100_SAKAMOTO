@@ -56,7 +56,6 @@ Werkzeug (パスワードハッシュ)
 ├─ models.py           # DBモデル定義
 ├─ config.py           # DB設定
 ├─ .env                # 環境変数（DB接続情報）
-├─ README.md
 │
 ├─ templates/
 │   ├─ base.html
