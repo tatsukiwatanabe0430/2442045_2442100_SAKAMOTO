@@ -125,4 +125,5 @@ python app.py
 http://127.0.0.1:5000
 
 デモ動画に関して要領の関係上アップデートできないため、以下のリンクより閲覧いただきたいです。よろしくお願いいたします。
+
 https://drive.google.com/file/d/1gfbv99k5_mcSwyAingK_ffEHEzCCJjwe/view?usp=sharing
